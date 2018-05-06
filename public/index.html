@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather Chat</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <H1> Weather Chat</H1>
+    <div class="clouds">
+        <!--img src="https://article.images.consumerreports.org/w_991,ar_32:11,c_lfill/prod/content/dam/cro/news_articles/Electronics/CR-Electronics-AH-Cloud-Bank-12-15"-->
+    </div>
+
+    <div id="search-container">
+        <div class="input-group col-md-8 search-div">
+            <input type="text" class="form-control city-input" placeholder="Enter City" aria-describedby="basic-addon2">
+            <button type="submit" class="btn btn-primary city-button">Search</button>
+        </div>
+    </div>
+
+    <div id="weather-container">
+        
+    </div>
+
+    <script id="weather-template" type='text/x-handlebars-template'>
+        {{#each weather}}
+        <div class = "weather-div" data-id={{id}}>
+
+        <h3>{{name}} <a class = trash><i class="fa fa-trash"></i></a></h3> 
+        <p> {{tempF}}F / {{tempC}}C at {{last_time_updated}} on {{last_date_updated}} {{condition}} <img src = {{icon}}> </p>
+        {{#each comment}}
+       <p>{{text}}</p>  
+       {{/each}}  
+       <input type="text" placeholder= 'Comment about the weather in' class="form-control comment-input" {{name}}>
+       <button type="submit" class="btn btn-warning comment-button">Submit</button>    
+       </div>
+     {{/each}}
+    </script>
+
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="handlebars/dist/handlebars.js"></script>
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>
